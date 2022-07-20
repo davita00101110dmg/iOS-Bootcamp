@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ul3-nu-g7Q">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--First View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="FirstViewController" customModule="DavitiKhvedelidzeHW18" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xAa-Yb-hWw">
+                                <rect key="frame" x="67" y="140" width="108" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7na-bb-amc">
+                                <rect key="frame" x="246" y="140" width="108" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j8e-l9-8mP">
+                                <rect key="frame" x="64" y="535" width="108" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nkb-sf-mEa">
+                                <rect key="frame" x="243" y="535" width="108" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="9So-Nf-aJs"/>
+                    <connections>
+                        <outlet property="blackTriangle" destination="nkb-sf-mEa" id="sFe-6F-HQ4"/>
+                        <outlet property="blueCircle" destination="7na-bb-amc" id="rUo-Ny-no9"/>
+                        <outlet property="purpleTriangle" destination="j8e-l9-8mP" id="Zoi-BZ-WqI"/>
+                        <outlet property="redCircle" destination="xAa-Yb-hWw" id="QAU-iI-jnu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="697.10144927536237" y="109.82142857142857"/>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="OAh-0Q-P8n">
+            <objects>
+                <viewController storyboardIdentifier="SecondViewController" id="f8H-m5-HMx" customClass="SecondViewController" customModule="DavitiKhvedelidzeHW18" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="m97-ck-Neo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="elgato" translatesAutoresizingMaskIntoConstraints="NO" id="1VX-vk-cC1">
+                                <rect key="frame" x="103.5" y="183.5" width="168" height="300"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Owl-lX-2t8"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1VX-vk-cC1" firstAttribute="centerX" secondItem="m97-ck-Neo" secondAttribute="centerX" id="7Gx-zA-xuW"/>
+                            <constraint firstItem="1VX-vk-cC1" firstAttribute="centerY" secondItem="m97-ck-Neo" secondAttribute="centerY" id="pzt-Gy-L7y"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="elgatoImage" destination="1VX-vk-cC1" id="nPP-oi-I90"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZQd-31-axQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1466.3551401869158" y="109.50323974082075"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zEY-GN-w6i">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ul3-nu-g7Q" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="L2N-tj-bOd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="c3u-ea-8AE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yC8-TR-Ql0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-606" y="91"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="elgato" width="168" height="300"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
