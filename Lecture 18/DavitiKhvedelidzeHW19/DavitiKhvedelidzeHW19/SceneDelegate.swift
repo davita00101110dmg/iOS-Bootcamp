@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  Constraints
+//  DavitiKhvedelidzeHW19
 //
-//  Created by Vasili Baramidze on 20.07.22.
+//  Created by Dato Khvedelidze on 21.07.22.
 //
 
 import UIKit
