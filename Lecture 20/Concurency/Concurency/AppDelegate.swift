@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Concurency
 //
-//  Created by Dato Khvedelidze on 08.08.22.
+//  Created by Vasili Baramidze on 08.08.22.
 //
 
 import UIKit
