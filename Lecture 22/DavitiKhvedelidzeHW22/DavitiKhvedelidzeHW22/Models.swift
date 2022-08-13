@@ -1,0 +1,33 @@
+//
+//  Models.swift
+//  DavitiKhvedelidzeHW22
+//
+//  Created by Dato Khvedelidze on 13.08.22.
+//
+
+import UIKit
+
+struct DataResponse: Codable {
+    
+    struct Movie: Codable {
+        let id: Int
+        let name: String
+        let overview: String
+        let poster_path: String
+        let vote_average: Double
+        
+//        enum CodingKeys: String, CodingKey {
+//            case id
+//            case name
+//            case poster_path = "imageUrl"
+//            case vote_average = "rating"
+//        }
+    }
+    
+    struct Session: Codable {
+        let success: Bool
+        let guest_session_id: String
+    }
+    
+    let results: [Movie]
+}
