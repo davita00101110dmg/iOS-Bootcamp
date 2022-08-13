@@ -10,22 +10,24 @@ import UIKit
 struct DataResponse: Codable {
     
     struct Movie: Codable {
+        
+//        enum CodingKeys: String, CodingKey {
+//            case id
+//            case name
+//            case overview
+//            case poster_path = "imageUrl"
+//            case vote_average = "rating"
+//        }
+        
         let id: Int
         let name: String
         let overview: String
         let poster_path: String
         let vote_average: Double
         
-//        enum CodingKeys: String, CodingKey {
-//            case id
-//            case name
-//            case poster_path = "imageUrl"
-//            case vote_average = "rating"
-//        }
     }
     
     struct Session: Codable {
-        let success: Bool
         let guest_session_id: String
     }
     
