@@ -7,6 +7,7 @@ struct OperationExample {
     func useOperation() {
         let operation = BlockOperation()
         operation.qualityOfService = .utility
+        operation.qualityOfService = .
         operation.addExecutionBlock {
             print("🟢")
         }

@@ -11,7 +11,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var networkService = NetworkService()
+    var networkService = NetworkService.shared
     var movies = [DataResponse.Movie]()
     var sessionID = String()
     

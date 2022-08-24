@@ -41,13 +41,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Do any additional setup after loading the view.
         listTableView.delegate = self
         listTableView.dataSource = self
-        networService.getMemes { response in
-            self.memes = response.data.memes
+//        networService.getMemes { response in
+//            self.memes = response.data.memes
+//            self.listTableView.reloadData()
+//        }
+//
+//        networService.getFolowers { allFollowers in
+//            self.folowers = allFollowers
+//        }
+        
+        networService.getData(urlString: "https://api.imgflip.com/get_memes#") { (item: MemesResponseData) in
+            self.memes = item.data.memes
             self.listTableView.reloadData()
         }
         
-        networService.getFolowers { allFollowers in
-            self.folowers = allFollowers
+        networService.getData(urlString: "https://api.github.com/users/SAllen0400/followers") { (followers: MemesResponseData) in
+            self.folowers = followers
         }
     }
 }

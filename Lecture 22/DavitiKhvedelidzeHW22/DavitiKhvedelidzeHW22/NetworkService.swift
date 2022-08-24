@@ -9,6 +9,10 @@ import Foundation
 
 class NetworkService {
     
+    static let shared = NetworkService()
+    
+    private init () {}
+    
     func getData<T: Codable>(with urlString: String, completionHandler: @escaping (T) -> (Void)) {
         
         var urlComponents = URLComponents(string: urlString)

@@ -5,7 +5,7 @@
 //  Created by Vasili Baramidze on 10.08.22.
 //
 
-import Foundation
+import UIKit
 
 class NetworkService {
     static var shared = NetworkService()
@@ -24,13 +24,36 @@ class NetworkService {
         let url = URL(string: urlsString)!
 
         session.dataTask(with: URLRequest(url: url)) { data, response, error in
-            print(Thread.current.isMainThread)
-            let data = data
-            let decoder = JSONDecoder()
-            let object = try! decoder.decode([Follower].self, from: data!)
-            DispatchQueue.main.async {
-                comletion(object)
+            
+            if let error = error {
+                print(error.localizedDescription)
             }
+            
+            guard let response = response as? HTTPURLResponse else {
+                return
+            }
+            
+            guard (200...299).contains(response.statusCode) else {
+                print("Wrong response")
+                return
+            }
+            
+            guard let data = data else {
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let object = try! decoder.decode([Follower].self, from: data)
+                DispatchQueue.main.async {
+                    comletion(object)
+                }
+            }
+            
+            catch {
+                print("decoding error")
+            }
+            
         }.resume()
     }
     
@@ -47,6 +70,44 @@ class NetworkService {
             DispatchQueue.main.async {
                 comletion(object)
             }
+        }.resume()
+    }
+    
+    func getData<T: Codable>(urlString: String, completion: @escaping (T) -> (Void)) {
+        
+        let url = URL(string: urlString)!
+        
+        session.dataTask(with: URLRequest(url: url)) { data, response, error in
+            
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            
+            guard let response = response as? HTTPURLResponse else {
+                return
+            }
+            
+            guard (200...299).contains(response.statusCode) else {
+                print("Wrong response")
+                return
+            }
+            
+            guard let data = data else {
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let object = try! decoder.decode(T.self, from: data)
+                DispatchQueue.main.async {
+                    completion(object)
+                }
+            }
+            
+            catch {
+                print("decoding error")
+            }
+            
         }.resume()
     }
 }

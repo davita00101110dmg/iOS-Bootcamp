@@ -14,7 +14,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var movieSummaryLabel: UILabel!
     @IBOutlet weak var movieRatingLabel: UILabel!
 
-    var networkService = NetworkService()
+    var networkService = NetworkService.shared
     var movieID = Int()
     
     override func viewDidLoad() {
