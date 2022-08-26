@@ -32,6 +32,27 @@ class HomeViewController: UIViewController {
         
     }
     
+    private func fetchNotes(onlyFavorites: Bool) {
+        
+        let request = Note.fetchRequest()
+        
+        // Filtering data if user choose only favorite notes
+        if onlyFavorites {
+            
+            let CustomPredicate = NSPredicate(format: "isFavorite == true")
+            
+            request.predicate = CustomPredicate
+            
+        }
+        
+        // Fetch data from core data
+        do {
+            self.items = try context.fetch(request)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
     private func setupUI() {
         title = "Notes"
         navigationController?.navigationBar.tintColor = UIColor.systemYellow
@@ -39,6 +60,12 @@ class HomeViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
                                                             target: self,
                                                             action: #selector(addNote))
+    }
+    
+    private func setupTableView() {
+        notesTableView.register(UINib(nibName: "NoteCell", bundle: nil), forCellReuseIdentifier: "NoteCell")
+        notesTableView.delegate = self
+        notesTableView.dataSource = self
     }
     
     @objc func addNote() {
@@ -77,7 +104,6 @@ class HomeViewController: UIViewController {
             do {
                 try self.context.save()
             } catch {
-                //FIXME: handle error
                 print(error.localizedDescription)
             }
             
@@ -89,35 +115,10 @@ class HomeViewController: UIViewController {
         
     }
     
-    private func setupTableView() {
-        notesTableView.register(UINib(nibName: "NoteCell", bundle: nil), forCellReuseIdentifier: "NoteCell")
-        notesTableView.delegate = self
-        notesTableView.dataSource = self
-    }
-    
-    private func fetchNotes(onlyFavorites: Bool) {
-        
-        let request = Note.fetchRequest()
-        
-        if onlyFavorites {
-            
-            let CustomPredicate = NSPredicate(format: "isFavorite == true")
-            
-            request.predicate = CustomPredicate
-            
-        }
-        
-        // Fetch data from core data
-        do {
-            self.items = try context.fetch(request)
-        } catch {
-            //FIXME: Handle error
-            print(error.localizedDescription)
-        }
-    }
 
     @IBAction func didChangeSegment(_ sender: UISegmentedControl) {
         
+        // Fetching data depending on the user selection
         if sender.selectedSegmentIndex == 0 {
             fetchNotes(onlyFavorites: false)
         } else {
@@ -135,8 +136,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell") as? NoteCell else { return UITableViewCell() }
-        
-        //FIXME: unwrapping
+    
         let currentNote = items![indexPath.row]
         
         cell.noteNameLabel.text = currentNote.name!
@@ -160,7 +160,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             do {
                 try self.context.save()
             } catch {
-                //FIXME: handle error
                 print(error.localizedDescription)
             }
             
@@ -174,11 +173,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let detailsVC = storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController else { return }
         
-        //FIXME: force unwrapping
-        let note = self.items![indexPath.row]
+        let currentNote = self.items![indexPath.row]
         
         // Pass current note
-        detailsVC.note = note
+        detailsVC.note = currentNote
         
         self.navigationController?.pushViewController(detailsVC, animated: true)
     }

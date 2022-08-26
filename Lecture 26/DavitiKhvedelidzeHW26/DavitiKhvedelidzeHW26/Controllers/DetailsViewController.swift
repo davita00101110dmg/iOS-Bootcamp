@@ -26,43 +26,46 @@ class DetailsViewController: UIViewController {
     }
 
     private func setupUI() {
-        
         editNoteTextView.isEditable = true
         editNoteTextView.text = note?.content
         editNoteTextView.font = UIFont(name: "Futura", size: 20)
 
-        makeFavoriteButtonOutlet.setTitle(note!.isFavorite ? "Make unfavorite" : "Make favorite", for: .normal)
-        makeFavoriteButtonOutlet.clipsToBounds = false
-        makeFavoriteButtonOutlet.layer.cornerRadius = 15
-        makeFavoriteButtonOutlet.setTitleColor(UIColor.systemPink, for: .normal)
-        
-        saveChangesButtonOutlet.setTitle("Save", for: .normal)
-        saveChangesButtonOutlet.clipsToBounds = false
-        saveChangesButtonOutlet.layer.cornerRadius = 15
-        saveChangesButtonOutlet.setTitleColor(UIColor.systemYellow, for: .normal)
+        setupButton(for: makeFavoriteButtonOutlet, with: note!.isFavorite ? "Make unfavorite" : "Make favorite", color: UIColor.systemPink)
+        setupButton(for: saveChangesButtonOutlet, with: "Save", color: UIColor.systemYellow)
+    }
+    
+    private func setupButton(for button: UIButton, with title: String, color: UIColor) {
+        button.setTitle(title, for: .normal)
+        button.clipsToBounds = false
+        button.layer.cornerRadius = 15
+        button.setTitleColor(color, for: .normal)
+        button.tintColor = color
     }
     
     @IBAction func makeFavoriteButtonAction(_ sender: Any) {
+        // Toggle value of propertie isFavorite after click on the button
         note?.isFavorite.toggle()
         
+        // Change title of button
         makeFavoriteButtonOutlet.setTitle(note!.isFavorite ? "Make unfavorite" : "Make favorite", for: .normal)
         
-        
+        // Save the data
         do {
             try context.save()
         } catch {
-            //FIXME: handle error
             print(error.localizedDescription)
         }
     }
     
     @IBAction func saveChangesButtonAction(_ sender: Any) {
+        
+        // Change the content of the note
         note?.content = editNoteTextView.text
         
+        // Save the data
         do {
             try context.save()
         } catch {
-            //FIXME: handle error
             print(error.localizedDescription)
         }
     }
