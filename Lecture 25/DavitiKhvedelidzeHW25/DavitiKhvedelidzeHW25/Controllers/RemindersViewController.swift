@@ -28,6 +28,8 @@ class RemindersViewController: UIViewController {
         setupUI()
         setupTableView()
         loadReminders()
+        
+        LocalNotificationManager.register(notification: LocalNotification(id: UUID().uuidString , title: reminders.randomElement()?.key ?? "notification name", message: reminders.randomElement()?.value ?? "notification body"), duration: 10, repeats: false, userInfo: reminders)
     }
     
     private func setupUI() {

@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B85230A28B4FF2C003E2E59 /* FileManager Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B85230928B4FF2C003E2E59 /* FileManager Helper.swift */; };
+		2B6FDE5F28BA65B800D80FF3 /* LocalNotificationsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6FDE5E28BA65B800D80FF3 /* LocalNotificationsHelper.swift */; };
+		2B85230A28B4FF2C003E2E59 /* FileManagerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B85230928B4FF2C003E2E59 /* FileManagerHelper.swift */; };
 		2B8CC95F28B4E0A5002C94B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8CC95E28B4E0A5002C94B9 /* AppDelegate.swift */; };
 		2B8CC96128B4E0A5002C94B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8CC96028B4E0A5002C94B9 /* SceneDelegate.swift */; };
 		2B8CC96328B4E0A5002C94B9 /* DirectoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8CC96228B4E0A5002C94B9 /* DirectoriesViewController.swift */; };
@@ -22,7 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2B85230928B4FF2C003E2E59 /* FileManager Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "FileManager Helper.swift"; path = "DavitiKhvedelidzeHW25/FileManager Helper.swift"; sourceTree = SOURCE_ROOT; };
+		2B6FDE5E28BA65B800D80FF3 /* LocalNotificationsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationsHelper.swift; sourceTree = "<group>"; };
+		2B85230928B4FF2C003E2E59 /* FileManagerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FileManagerHelper.swift; path = DavitiKhvedelidzeHW25/FileManagerHelper.swift; sourceTree = SOURCE_ROOT; };
 		2B8CC95B28B4E0A5002C94B9 /* DavitiKhvedelidzeHW25.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DavitiKhvedelidzeHW25.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B8CC95E28B4E0A5002C94B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B8CC96028B4E0A5002C94B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +51,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B6FDE5D28BA65A600D80FF3 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2B85230928B4FF2C003E2E59 /* FileManagerHelper.swift */,
+				2B6FDE5E28BA65B800D80FF3 /* LocalNotificationsHelper.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		2B8CC95228B4E0A5002C94B9 = {
 			isa = PBXGroup;
 			children = (
@@ -70,7 +81,7 @@
 			children = (
 				2B8CC96028B4E0A5002C94B9 /* SceneDelegate.swift */,
 				2B8CC95E28B4E0A5002C94B9 /* AppDelegate.swift */,
-				2B85230928B4FF2C003E2E59 /* FileManager Helper.swift */,
+				2B6FDE5D28BA65A600D80FF3 /* Helpers */,
 				2B8CC97228B4E618002C94B9 /* Controllers */,
 				2B8CC97928B4E756002C94B9 /* DirectoryCell */,
 				2B8CC97E28B4E78A002C94B9 /* ReminderCell */,
@@ -188,7 +199,8 @@
 				2B8CC97C28B4E77F002C94B9 /* DirectoryCell.swift in Sources */,
 				2B8CC95F28B4E0A5002C94B9 /* AppDelegate.swift in Sources */,
 				2B8CC96128B4E0A5002C94B9 /* SceneDelegate.swift in Sources */,
-				2B85230A28B4FF2C003E2E59 /* FileManager Helper.swift in Sources */,
+				2B6FDE5F28BA65B800D80FF3 /* LocalNotificationsHelper.swift in Sources */,
+				2B85230A28B4FF2C003E2E59 /* FileManagerHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
