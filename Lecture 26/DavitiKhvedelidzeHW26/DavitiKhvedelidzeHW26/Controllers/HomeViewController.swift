@@ -11,9 +11,6 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var notesTableView: UITableView!
     
-    // Reference to managed object context
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
     // Data for the table
     var items: [Note]? {
         didSet {
@@ -95,17 +92,12 @@ class HomeViewController: UIViewController {
             guard let content = fields[1].text else { return }
             
             // Create note object
-            let newNote = Note(context: self.context)
+            let newNote = Note(context: context)
             newNote.name = name
             newNote.content = content
             newNote.isFavorite = false
             
-            // Save the data
-            do {
-                try self.context.save()
-            } catch {
-                print(error.localizedDescription)
-            }
+            saveData()
             
             // Refresh the data
             self.fetchNotes(onlyFavorites: false)
@@ -154,14 +146,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             let noteToRemove = self.items![indexPath.row]
             
             // Remove from core data
-            self.context.delete(noteToRemove)
+            context.delete(noteToRemove)
             
-            // Save the data
-            do {
-                try self.context.save()
-            } catch {
-                print(error.localizedDescription)
-            }
+            saveData()
             
             // Re-fetch the data
             self.fetchNotes(onlyFavorites: false)

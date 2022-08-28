@@ -12,10 +12,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var editNoteTextView: UITextView!
     @IBOutlet weak var makeFavoriteButtonOutlet: UIButton!
     @IBOutlet weak var saveChangesButtonOutlet: UIButton!
-    
-    // Reference to managed object context
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
+        
     // Current note
     var note: Note?
     
@@ -49,12 +46,7 @@ class DetailsViewController: UIViewController {
         // Change title of button
         makeFavoriteButtonOutlet.setTitle(note!.isFavorite ? "Make unfavorite" : "Make favorite", for: .normal)
         
-        // Save the data
-        do {
-            try context.save()
-        } catch {
-            print(error.localizedDescription)
-        }
+        saveData()
     }
     
     @IBAction func saveChangesButtonAction(_ sender: Any) {
@@ -62,12 +54,7 @@ class DetailsViewController: UIViewController {
         // Change the content of the note
         note?.content = editNoteTextView.text
         
-        // Save the data
-        do {
-            try context.save()
-        } catch {
-            print(error.localizedDescription)
-        }
+        saveData()
     }
     
 
