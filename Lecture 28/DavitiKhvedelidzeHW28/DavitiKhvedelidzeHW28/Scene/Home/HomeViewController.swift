@@ -86,15 +86,9 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     // MARK: - Outlets
     
     @IBOutlet weak var titleLabel: UILabel!
-    
     @IBOutlet weak var countryTextField:UITextField!
-    
     @IBOutlet weak var fetchWeatherButtonOutlet: UIButton!
-    
     @IBOutlet weak var showWeatherDetailsButtonOutlet: UIButton!
-    
-    
-    
     
     // MARK: - Button Actions
     
@@ -105,5 +99,4 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     @IBAction func showWeatherDetailsButtonAction(_ sender: Any) {
         router?.routeToCountryWeatherDetails()
     }
-    
 }
